@@ -41,14 +41,29 @@ module.exports = {
   },
 
   async update(req, res) {
-    // atualizar Nome, avatar, bio , localização e tecnologias
 
+    const { id, name, avatar_url, bio, latitude, longitude, techs } = req.body;
 
-    const { github_username, name, avatar_url, bio, latitude, longitude, techs } = req.body;
+    const dev = await Dev.findById(id);
 
-    let dev = await Dev.findOne({ github_username });
+    console.log(dev.name);
+    console.log(name === "");
 
+    const techsArray = parseStringAsArray(techs);
+    const location = {
+      type: 'Point',
+      coordinates: [longitude, latitude],
+    }
 
+    dev.name = name;
+    dev.avatar_url = avatar_url;
+    dev.bio = bio;
+    dev.location = location;
+    dev.techs = techsArray;
+
+    dev.save();
+
+    return res.status(204).end();
 
   },
 
@@ -60,6 +75,7 @@ module.exports = {
       return res.status(404).end();
     }
     return res.status(204).end();
+
   }
 
 };

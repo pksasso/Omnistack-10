@@ -8,6 +8,7 @@ routes.get('/devs', DevController.index);
 routes.post('/devs', DevController.store);
 routes.delete('/devs', DevController.delete);
 
+routes.post('/edit', DevController.update);
 
 routes.get('/search', SearchController.index);
 
