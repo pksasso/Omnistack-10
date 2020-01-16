@@ -1,7 +1,12 @@
 import React from 'react';
 import './styles.css'
 
-function DevItem({ dev }) {
+function DevItem({ handleDelete, dev }) {
+
+  async function handleDeleteDev() {
+    await handleDelete(dev);
+  }
+
   return (
     <li key={dev._id} className="dev-item">
       <header>
@@ -12,7 +17,10 @@ function DevItem({ dev }) {
         </div>
       </header>
       <p>{dev.bio}</p>
-      <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no Github</a>
+      <div className="user-buttons">
+        <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no Github</a>
+        <button onClick={handleDeleteDev}>Apagar Dev</button>
+      </div>
     </li>
   );
 }

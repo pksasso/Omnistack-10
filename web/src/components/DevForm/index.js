@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import './styles.css'
+
 function DevForm({ onSubmit }) {
 
   const [latitude, setLatitude] = useState('');
@@ -39,14 +41,15 @@ function DevForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-
       <div className="input-block">
         <label htmlFor="github_username">Usuário do GitHub</label>
         <input
           name="github_username"
           id="github_username"
           required
+          value={github_username}
           onChange={e => setGithubUsername(e.target.value)}
+
         />
       </div>
 
@@ -56,6 +59,7 @@ function DevForm({ onSubmit }) {
           name="techs"
           id="techs"
           required
+          value={techs}
           onChange={e => setTechs(e.target.value)}
         />
       </div>

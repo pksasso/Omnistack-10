@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import './global.css';
 import './App.css';
-import './SideBar.css';
 import './Main.css';
 
 import api from './services/api';
@@ -22,13 +21,19 @@ function App() {
       setDevs(respose.data);
     }
     loadDevs();
-  }, []);
+  }, [devs]);
 
   async function handleAddDev(data) {
 
     const response = await api.post('/devs', data);
 
     setDevs([...devs, response.data]);
+  }
+
+  async function handleDeleteDev(dev) {
+
+    await api.delete(`/devs?github_username=${dev.github_username}`);
+
   }
 
   return (
@@ -40,7 +45,7 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => (
-            <DevItem key={dev._id} dev={dev} />
+            <DevItem key={dev._id} dev={dev} handleDelete={handleDeleteDev} />
           ))}
         </ul>
       </main>

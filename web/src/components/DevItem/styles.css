@@ -50,3 +50,24 @@ li.dev-item a {
 li.dev-item a:hover{
   color: #5a2ea6;
 }
+
+.user-buttons {
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+}
+
+.user-buttons button{
+  text-align: center;
+  border: none;
+  color:#fff;
+  background-color: #ef5350;
+  padding: 2px;
+  border-radius: 2px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.user-buttons button:hover{
+  transition-duration: 0.4s;
+  background-color: #d15350;
+}
