@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import './styles.css'
+import './styles.css';
 
 function DevForm({ onSubmit }) {
 
@@ -89,7 +89,6 @@ function DevForm({ onSubmit }) {
           />
         </div>
       </div>
-
 
       <button type="submit">Salvar</button>
     </form>

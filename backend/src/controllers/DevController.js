@@ -46,9 +46,6 @@ module.exports = {
 
     const dev = await Dev.findById(id);
 
-    console.log(dev.name);
-    console.log(name === "");
-
     const techsArray = parseStringAsArray(techs);
     const location = {
       type: 'Point',

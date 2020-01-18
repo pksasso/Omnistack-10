@@ -42,21 +42,31 @@ li.dev-item p {
 }
 
 li.dev-item a {
-  color: #8e4dff;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  border: none;
+  padding: 2px;
+  color: #fff;
   font-size: 14px;
   text-decoration: none;
+  background-color: #8e4dff;
+  border-radius: 2px;
+  width: 100%;
+  cursor: pointer;
 }
 
 li.dev-item a:hover{
-  color: #5a2ea6;
+  transition-duration: 0.4s;
+  background-color: #5a2ea6;
 }
 
 .user-buttons {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
   display: grid;
 }
 
-.user-buttons button{
+.user-buttons button.delete{
   text-align: center;
   border: none;
   color:#fff;
@@ -67,7 +77,23 @@ li.dev-item a:hover{
   cursor: pointer;
 }
 
-.user-buttons button:hover{
+.user-buttons button.delete:hover{
   transition-duration: 0.4s;
   background-color: #d15350;
+}
+
+.user-buttons button.edit{
+  text-align: center;
+  border: none;
+  color:#fff;
+  background-color: #4caf50;
+  padding: 2px;
+  border-radius: 2px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.user-buttons button.edit:hover{
+  transition-duration: 0.4s;
+  background-color: #4e9250;
 }

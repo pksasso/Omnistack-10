@@ -7,12 +7,14 @@ import './Main.css';
 import api from './services/api';
 import DevItem from './components/DevItem';
 import DevForm from './components/DevForm';
+import EditForm from './components/EditForm';
 
 
 function App() {
 
   const [devs, setDevs] = useState([]);
-
+  let [isEdit, setIsEdit] = useState(false);
+  const [editDev, setEditDev] = useState();
 
   useEffect(() => {
     async function loadDevs() {
@@ -36,19 +38,56 @@ function App() {
 
   }
 
+  async function handleEditDev(data) {
+    setIsEdit(isEdit = !isEdit);
+    //função abaixo da erro no post e trava
+    //await api.post('/edit', data);
+  }
+
+  function isEditingDev(dev) {
+
+    setEditDev(dev);
+    setIsEdit(isEdit = !isEdit);
+  }
+
+  function mainBody() {
+
+    return (
+      <div id="app">
+        <aside>
+          <strong>Cadastrar</strong>
+          <DevForm onSubmit={handleAddDev} />
+        </aside>
+        <main>
+          <ul>
+            {devs.map(dev => (
+              <DevItem
+                key={dev._id}
+                dev={dev}
+                handleDelete={handleDeleteDev}
+                editDev={isEditingDev}
+              />
+            ))}
+          </ul>
+        </main>
+      </div>
+    );
+  }
+
+  function editBody(editDev) {
+    return (
+      <div id="app">
+        <EditForm dev={editDev} onSubmit={handleEditDev} />
+      </div>
+    );
+  }
+
   return (
-    <div id="app">
-      <aside>
-        <strong>Cadastrar</strong>
-        <DevForm onSubmit={handleAddDev} />
-      </aside>
-      <main>
-        <ul>
-          {devs.map(dev => (
-            <DevItem key={dev._id} dev={dev} handleDelete={handleDeleteDev} />
-          ))}
-        </ul>
-      </main>
+    <div >
+      {isEdit ?
+        editBody(editDev)
+        : mainBody()
+      }
     </div>
   );
 }
