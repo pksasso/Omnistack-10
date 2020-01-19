@@ -42,9 +42,9 @@ module.exports = {
 
   async update(req, res) {
 
-    const { id, name, avatar_url, bio, latitude, longitude, techs } = req.body;
+    const { _id, name, avatar_url, bio, latitude, longitude, techs } = req.body;
 
-    const dev = await Dev.findById(id);
+    const dev = await Dev.findById(_id);
 
     const techsArray = parseStringAsArray(techs);
     const location = {
