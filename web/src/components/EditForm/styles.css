@@ -10,7 +10,7 @@ div .main {
 
 strong {
   font-size: 20px;
-  text-align: center;
+  text-align: start;
   display: block;
   color: #333;
 }

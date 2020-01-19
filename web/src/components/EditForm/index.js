@@ -8,15 +8,15 @@ function EditForm({ dev, onSubmit }) {
   const [longitude, setLongitude] = useState(dev.location.coordinates[1]);
   const [avatar_url, setAvatarUrl] = useState(dev.avatar_url);
   const [name, setName] = useState(dev.name);
-  const [bio, setBio] = useState(dev.bio);
-  const [techs, setTechs] = useState(dev.techs);
-  const id = dev.id;
+  const [bio, setBio] = useState(dev.bio === null ? '' : dev.bio);
+  const [techs, setTechs] = useState(dev.techs.join(','));
+  const _id = dev._id;
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    onSubmit({
-      id,
+    await onSubmit({
+      _id,
       name,
       avatar_url,
       techs,

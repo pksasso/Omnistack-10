@@ -40,8 +40,8 @@ function App() {
 
   async function handleEditDev(data) {
     setIsEdit(isEdit = !isEdit);
-    //função abaixo da erro no post e trava
-    //await api.post('/edit', data);
+
+    await api.post('/edit', data);
   }
 
   function isEditingDev(dev) {
