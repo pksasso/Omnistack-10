@@ -1,0 +1,35 @@
+
+header.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+li.menu-item {
+  display: inline;
+
+  padding: 0 20px;
+}
+
+ul.menu-list{
+  padding-top: 30px;
+}
+
+button.menu-button { 
+  border: 0;
+  background: transparent;
+  border-radius: 2px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #7D40E7;
+  cursor: pointer;
+  transition:  0.5s;
+}
+
+button.menu-button:hover{
+  color: #fff;
+  background-color: #7D40E7;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}

@@ -8,6 +8,8 @@ import api from './services/api';
 import DevItem from './components/DevItem';
 import DevForm from './components/DevForm';
 import EditForm from './components/EditForm';
+import Header from './components/Header';
+import Map from './components/Map'
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
   const [devs, setDevs] = useState([]);
   let [isEdit, setIsEdit] = useState(false);
   const [editDev, setEditDev] = useState();
+  let [activeScreen, setActiveScreen] = useState(0);
 
   useEffect(() => {
     async function loadDevs() {
@@ -45,13 +48,32 @@ function App() {
   }
 
   function isEditingDev(dev) {
-
     setEditDev(dev);
     setIsEdit(isEdit = !isEdit);
   }
 
-  function mainBody() {
+  function changeActiveScreen(option) {
+    if (activeScreen !== option) {
+      setActiveScreen(activeScreen = option);
+    }
+  }
 
+  function mainBody() {
+    return (
+      <div>
+        <Header changeMenuOption={changeActiveScreen} />
+        {activeScreen === 0 ? listBody() : mapBody()}
+      </div>
+    );
+  }
+
+  function mapBody() {
+    return (
+      <Map></Map>
+    );
+  }
+
+  function listBody() {
     return (
       <div id="app">
         <aside>
@@ -74,6 +96,12 @@ function App() {
     );
   }
 
+  function mapBody() {
+    return (
+      <Map></Map>
+    );
+  }
+
   function editBody(editDev) {
     return (
       <div id="app">
@@ -84,6 +112,7 @@ function App() {
 
   return (
     <div >
+
       {isEdit ?
         editBody(editDev)
         : mainBody()
