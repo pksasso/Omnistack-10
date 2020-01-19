@@ -1,4 +1,5 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -6,7 +7,11 @@ const routes = require('./routes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://patrick:omnistack@cluster0-6zsp4.mongodb.net/week10?retryWrites=true&w=majority', {
+dotenv.config({
+  path: './.env'
+})
+
+mongoose.connect(process.env.NODE_ENV_MONGO_ACCESS, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
