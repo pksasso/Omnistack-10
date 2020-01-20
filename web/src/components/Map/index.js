@@ -9,7 +9,7 @@ function MyMap({ devs }) {
   return (
     <div>
       <div className='map-box'>
-        <div style={{ height: "100vh", width: "100%" }}>
+        <div style={{ height: "70vh", width: "100%" }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: process.env.REACT_APP_API_GOOGLEMAPS }}
             defaultCenter={{ lat: -22.9261312, lng: -43.261952 }}
