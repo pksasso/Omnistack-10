@@ -9,7 +9,7 @@ import DevItem from './components/DevItem';
 import DevForm from './components/DevForm';
 import EditForm from './components/EditForm';
 import Header from './components/Header';
-import Map from './components/Map'
+import MyMap from './components/Map'
 
 
 function App() {
@@ -69,7 +69,9 @@ function App() {
 
   function mapBody() {
     return (
-      <Map></Map>
+      <div id="map">
+        <MyMap devs={devs}></MyMap>
+      </div>
     );
   }
 
@@ -93,12 +95,6 @@ function App() {
           </ul>
         </main>
       </div>
-    );
-  }
-
-  function mapBody() {
-    return (
-      <Map></Map>
     );
   }
 
