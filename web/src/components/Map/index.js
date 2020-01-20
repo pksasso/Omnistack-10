@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
 import './styles.css';
@@ -14,6 +14,7 @@ function MyMap({ devs }) {
             bootstrapURLKeys={{ key: process.env.REACT_APP_API_GOOGLEMAPS }}
             defaultCenter={{ lat: -22.9261312, lng: -43.261952 }}
             defaultZoom={10}
+            yesIWantToUseGoogleMapApiInternals
           >
             {devs.map(dev => (
               <Marker
@@ -21,21 +22,20 @@ function MyMap({ devs }) {
                 lat={dev.location.coordinates[1]}
                 lng={dev.location.coordinates[0]}
               >
-                <button className="dev-marker">
-                  <img src={dev.avatar_url} />
-                </button>
-
+                <div className="map-marker">
+                  <button
+                    className="dev-marker"
+                    onClick={() => console.log(dev.name)}>
+                    <img src={dev.avatar_url} alt={dev.name} />
+                  </button>
+                </div>
               </Marker>
             ))}
-
           </GoogleMapReact>
-
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
 export default MyMap;
-
-
