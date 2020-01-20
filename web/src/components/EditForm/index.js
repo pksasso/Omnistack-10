@@ -4,8 +4,8 @@ import './styles.css';
 
 function EditForm({ dev, onSubmit }) {
 
-  const [latitude, setLatitude] = useState(dev.location.coordinates[0]);
-  const [longitude, setLongitude] = useState(dev.location.coordinates[1]);
+  const [latitude, setLatitude] = useState(dev.location.coordinates[1]);
+  const [longitude, setLongitude] = useState(dev.location.coordinates[0]);
   const [avatar_url, setAvatarUrl] = useState(dev.avatar_url);
   const [name, setName] = useState(dev.name);
   const [bio, setBio] = useState(dev.bio === null ? '' : dev.bio);
