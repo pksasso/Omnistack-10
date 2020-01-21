@@ -16,3 +16,24 @@ div.map-marker{
   align-items: center;
   background-color: #E5E6F0;
 } 
+
+.div-info{
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  height: 60px;
+  width: 120px;
+  flex-direction: row;
+  border-radius: 3px;
+}
+
+.div-info img{
+  height: 30px;
+  width: 30px;
+  border-radius: 10%;
+}
+
+.div-info h3{
+  padding-left: 4px;
+  font-size: 12px;
+}
