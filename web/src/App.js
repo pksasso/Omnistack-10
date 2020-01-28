@@ -86,7 +86,7 @@ function App() {
           <ul>
             {devs.map(dev => (
               <DevItem
-                key={dev._id}
+                key={dev.id}
                 dev={dev}
                 handleDelete={handleDeleteDev}
                 editDev={isEditingDev}

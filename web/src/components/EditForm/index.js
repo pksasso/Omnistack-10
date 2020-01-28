@@ -4,19 +4,19 @@ import './styles.css';
 
 function EditForm({ dev, onSubmit }) {
 
-  const [latitude, setLatitude] = useState(dev.location.coordinates[1]);
-  const [longitude, setLongitude] = useState(dev.location.coordinates[0]);
+  const [latitude, setLatitude] = useState(dev.latitude);
+  const [longitude, setLongitude] = useState(dev.longitude);
   const [avatar_url, setAvatarUrl] = useState(dev.avatar_url);
   const [name, setName] = useState(dev.name);
   const [bio, setBio] = useState(dev.bio === null ? '' : dev.bio);
-  const [techs, setTechs] = useState(dev.techs.join(','));
-  const _id = dev._id;
+  const [techs, setTechs] = useState(dev.techs);
+  const id = dev.id;
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     await onSubmit({
-      _id,
+      id,
       name,
       avatar_url,
       techs,

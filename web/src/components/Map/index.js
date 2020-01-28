@@ -15,10 +15,12 @@ function Map() {
     >
       {devPack.map(dev => (
         <Marker
-          key={dev._id}
+          key={dev.id}
+
           position={{
-            lat: dev.location.coordinates[1],
-            lng: dev.location.coordinates[0]
+
+            lat: parseFloat(dev.latitude),
+            lng: parseFloat(dev.longitude)
           }}
           icon={{
             url: `${dev.avatar_url}`,
@@ -31,13 +33,13 @@ function Map() {
         selectedDev && (
           <InfoWindow
             position={{
-              lat: selectedDev.location.coordinates[1],
-              lng: selectedDev.location.coordinates[0]
+              lat: parseFloat(selectedDev.latitude),
+              lng: parseFloat(selectedDev.longitude)
             }}
             onCloseClick={() => setselectedDev(null)}
           >
             <div className="div-info">
-              <img src={selectedDev.avatar_url} />
+              <img src={selectedDev.avatar_url} alt="" />
               <h3>{selectedDev.name}</h3>
             </div>
           </InfoWindow>
