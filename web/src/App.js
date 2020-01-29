@@ -26,7 +26,7 @@ function App() {
       setDevs(respose.data);
     }
     loadDevs();
-  }, [devs]);
+  }, devs);
 
   async function handleAddDev(data) {
 
